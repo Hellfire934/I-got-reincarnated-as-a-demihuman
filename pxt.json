@@ -2,7 +2,11 @@
     "name": "RPG Game ",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "sprite-scaling": "*",
+        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1"
     },
     "files": [
         "main.blocks",
@@ -10,13 +14,15 @@
         "README.md",
         "assets.json",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "images.g.jres",
+        "images.g.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.12.59",
+        "target": "2.0.46",
         "targetId": "arcade"
     },
     "supportedTargets": [
