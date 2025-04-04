@@ -31,6 +31,8 @@ namespace SpriteKind {
     export const monster13 = SpriteKind.create()
     export const Boss3 = SpriteKind.create()
 }
+/**
+ */
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Npc8, function (sprite, otherSprite) {
     if (otherSprite == npc9) {
         timer.throttle("action", 5000, function () {
@@ -260,29 +262,63 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`orger teleport`, function (sp
         level = 8
         monster13 = sprites.create(assets.image`oger with a sword and amor`, SpriteKind.monster13)
         tiles.placeOnRandomTile(monster13, assets.tile`ork floor2`)
-        scaling.scaleToPercent(mySprite, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+        scaling.scaleToPercent(monster13, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         monster14 = sprites.create(assets.image`oger with a sword and amor`, SpriteKind.monster14)
         tiles.placeOnRandomTile(monster14, assets.tile`ork floor0`)
+        scaling.scaleToPercent(monster14, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         monster15 = sprites.create(assets.image`oger with a sword and amor`, SpriteKind.monster15)
         tiles.placeOnRandomTile(monster15, assets.tile`ork floor2`)
-        scaling.scaleToPercent(mySprite, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+        scaling.scaleToPercent(monster15, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         monster16 = sprites.create(assets.image`mage type orger`, SpriteKind.monster16)
         tiles.placeOnRandomTile(monster16, assets.tile`ork floor1`)
-        scaling.scaleToPercent(mySprite, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+        scaling.scaleToPercent(monster16, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         monster17 = sprites.create(assets.image`mage type orger`, SpriteKind.monster17)
         tiles.placeOnRandomTile(monster17, assets.tile`ork floor0`)
-        scaling.scaleToPercent(mySprite, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+        scaling.scaleToPercent(monster17, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         monster18 = sprites.create(assets.image`mage type orger`, SpriteKind.monster18)
         tiles.placeOnRandomTile(monster18, assets.tile`ork floor1`)
-        scaling.scaleToPercent(mySprite, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+        scaling.scaleToPercent(monster18, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         timer.after(100, function () {
-            // remamber to change velocity on all
-            monster13.setVelocity(randint(-95, 95), randint(-55, 55))
-            monster14.setVelocity(randint(-95, 95), randint(-55, 55))
-            monster15.setVelocity(randint(-95, 95), randint(-55, 55))
-            monster16.setVelocity(randint(-95, 95), randint(-55, 55))
-            monster17.setVelocity(randint(-95, 95), randint(-55, 55))
-            monster18.setVelocity(randint(-95, 95), randint(-55, 55))
+            if (spriteutils.distanceBetween(mySprite, monster13) < 1000) {
+                monster13.follow(mySprite, 50)
+            } else {
+                monster13.follow(null)
+            }
+        })
+        timer.after(100, function () {
+            if (spriteutils.distanceBetween(mySprite, monster14) < 1000) {
+                monster14.follow(mySprite, 55)
+            } else {
+                monster14.follow(null)
+            }
+        })
+        timer.after(100, function () {
+            if (spriteutils.distanceBetween(mySprite, monster15) < 1000) {
+                monster15.follow(mySprite, 60)
+            } else {
+                monster15.follow(null)
+            }
+        })
+        timer.after(100, function () {
+            if (spriteutils.distanceBetween(mySprite, monster16) < 1000) {
+                monster16.follow(mySprite, 35)
+            } else {
+                monster16.follow(null)
+            }
+        })
+        timer.after(100, function () {
+            if (spriteutils.distanceBetween(mySprite, monster17) < 1000) {
+                monster17.follow(mySprite, 40)
+            } else {
+                monster17.follow(null)
+            }
+        })
+        timer.after(100, function () {
+            if (spriteutils.distanceBetween(mySprite, monster18) < 1000) {
+                monster18.follow(mySprite, 45)
+            } else {
+                monster18.follow(null)
+            }
         })
     }
 })
@@ -314,16 +350,64 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`floor 2 orger tellyport0`, fu
         level = 8
         monster13 = sprites.create(assets.image`oger with a sword and amor`, SpriteKind.monster13)
         tiles.placeOnRandomTile(monster13, assets.tile`ork floor2`)
+        scaling.scaleToPercent(monster13, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         monster14 = sprites.create(assets.image`oger with a sword and amor`, SpriteKind.monster14)
-        tiles.placeOnRandomTile(monster14, assets.tile`ork floor`)
+        tiles.placeOnRandomTile(monster14, assets.tile`ork floor0`)
+        scaling.scaleToPercent(monster14, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         monster15 = sprites.create(assets.image`oger with a sword and amor`, SpriteKind.monster15)
         tiles.placeOnRandomTile(monster15, assets.tile`ork floor2`)
+        scaling.scaleToPercent(monster15, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         monster16 = sprites.create(assets.image`mage type orger`, SpriteKind.monster16)
         tiles.placeOnRandomTile(monster16, assets.tile`ork floor1`)
+        scaling.scaleToPercent(monster16, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         monster17 = sprites.create(assets.image`mage type orger`, SpriteKind.monster17)
-        tiles.placeOnRandomTile(monster17, assets.tile`ork floor`)
+        tiles.placeOnRandomTile(monster17, assets.tile`ork floor0`)
+        scaling.scaleToPercent(monster17, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         monster18 = sprites.create(assets.image`mage type orger`, SpriteKind.monster18)
         tiles.placeOnRandomTile(monster18, assets.tile`ork floor1`)
+        scaling.scaleToPercent(monster18, 150, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+        timer.after(100, function () {
+            if (spriteutils.distanceBetween(mySprite, monster13) < 1000) {
+                monster13.follow(mySprite, 50)
+            } else {
+                monster13.follow(null)
+            }
+        })
+        timer.after(100, function () {
+            if (spriteutils.distanceBetween(mySprite, monster14) < 1000) {
+                monster14.follow(mySprite, 55)
+            } else {
+                monster14.follow(null)
+            }
+        })
+        timer.after(100, function () {
+            if (spriteutils.distanceBetween(mySprite, monster15) < 1000) {
+                monster15.follow(mySprite, 60)
+            } else {
+                monster15.follow(null)
+            }
+        })
+        timer.after(100, function () {
+            if (spriteutils.distanceBetween(mySprite, monster16) < 1000) {
+                monster16.follow(mySprite, 35)
+            } else {
+                monster16.follow(null)
+            }
+        })
+        timer.after(100, function () {
+            if (spriteutils.distanceBetween(mySprite, monster17) < 1000) {
+                monster17.follow(mySprite, 40)
+            } else {
+                monster17.follow(null)
+            }
+        })
+        timer.after(100, function () {
+            if (spriteutils.distanceBetween(mySprite, monster18) < 1000) {
+                monster18.follow(mySprite, 45)
+            } else {
+                monster18.follow(null)
+            }
+        })
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC4, function (sprite, otherSprite) {
@@ -597,6 +681,9 @@ controller.moveSprite(mySprite, 150, 150)
 scene.cameraFollowSprite(mySprite)
 tiles.setCurrentTilemap(tilemap`over world`)
 level = 0
+let statusbar = statusbars.create(14, 2, StatusBarKind.Health)
+statusbar.attachToSprite(mySprite, -25, 0)
+statusbar.setColor(6, 2, 5)
 game.onUpdate(function () {
     if (level == 7) {
         sprites.destroy(NPC3)
@@ -719,6 +806,26 @@ game.onUpdate(function () {
         sprites.destroy(monster18)
     }
 })
+game.onUpdate(function () {
+    if (level == 8) {
+        sprites.destroy(Boss3)
+    }
+})
+game.onUpdate(function () {
+    if (level == 8) {
+        sprites.destroy(Boss3)
+    }
+})
+game.onUpdate(function () {
+    if (level == 17) {
+        sprites.destroy(monster13)
+        sprites.destroy(monster14)
+        sprites.destroy(monster15)
+        sprites.destroy(monster16)
+        sprites.destroy(monster17)
+        sprites.destroy(monster18)
+    }
+})
 forever(function () {
-	
+    music.play(music.createSong(assets.song`passive music0`), music.PlaybackMode.UntilDone)
 })
