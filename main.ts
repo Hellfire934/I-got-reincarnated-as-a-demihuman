@@ -31,6 +31,9 @@ namespace SpriteKind {
     export const monster13 = SpriteKind.create()
     export const Boss3 = SpriteKind.create()
 }
+namespace StatusBarKind {
+    export const EXP = StatusBarKind.create()
+}
 /**
  */
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Npc8, function (sprite, otherSprite) {
@@ -681,9 +684,30 @@ controller.moveSprite(mySprite, 150, 150)
 scene.cameraFollowSprite(mySprite)
 tiles.setCurrentTilemap(tilemap`over world`)
 level = 0
-let statusbar = statusbars.create(14, 2, StatusBarKind.Health)
-statusbar.attachToSprite(mySprite, -25, 0)
-statusbar.setColor(6, 2, 5)
+let statusbar = statusbars.create(40, 5, StatusBarKind.Health)
+statusbar.setOffsetPadding(50, 2)
+statusbar.setColor(7, 2, 5)
+statusbar.setBarBorder(1, 15)
+statusbar.max = 100
+statusbar.setLabel("HP", 15)
+statusbar.positionDirection(CollisionDirection.Left)
+statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+let statusbar2 = statusbars.create(40, 5, StatusBarKind.Magic)
+statusbar2.setOffsetPadding(50, 20)
+statusbar2.setColor(8, 6, 9)
+statusbar2.setBarBorder(1, 15)
+statusbar2.positionDirection(CollisionDirection.Right)
+statusbar2.setLabel("MP", 15)
+statusbar2.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+statusbar2.max = 100
+let stausbar3 = statusbars.create(100, 5, StatusBarKind.EXP)
+stausbar3.setOffsetPadding(-10, 5)
+stausbar3.setColor(10, 11, 11)
+stausbar3.setBarBorder(1, 15)
+stausbar3.positionDirection(CollisionDirection.Top)
+stausbar3.setLabel("EXP", 15)
+stausbar3.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+stausbar3.value = 0
 game.onUpdate(function () {
     if (level == 7) {
         sprites.destroy(NPC3)
@@ -827,5 +851,5 @@ game.onUpdate(function () {
     }
 })
 forever(function () {
-    music.play(music.createSong(assets.song`passive music0`), music.PlaybackMode.UntilDone)
+	
 })
