@@ -68,6 +68,15 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC, function (sprite, otherSpri
         })
     }
 })
+statusbars.onStatusReached(StatusBarKind.Energy, statusbars.StatusComparison.EQ, statusbars.ComparisonType.Percentage, 0, function (status) {
+    game.setGameOverMessage(false, "MP is also life total")
+    game.gameOver(false)
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster8, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1.5
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`house A dragonia teleport`, function (sprite, location) {
     if (level == 7) {
         tiles.setCurrentTilemap(maps[11])
@@ -131,16 +140,18 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC5, function (sprite, otherSpr
         })
     }
 })
+statusbars.onStatusReached(StatusBarKind.Magic, statusbars.StatusComparison.EQ, statusbars.ComparisonType.Percentage, 0, function (status) {
+    animation.stopAnimation(animation.AnimationTypes.ImageAnimation, mySprite)
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    timer.after(150, function () {
-        mySprite.sayText("BEHOLD MY DARK MAGIC MONSTER", 1000, true)
+    timer.after(500, function () {
         animation.runImageAnimation(
         mySprite,
         assets.animation`dark magic attack`,
         100,
         false
         )
-        timer.after(400, function () {
+        timer.after(600, function () {
             animation.runImageAnimation(
             mySprite,
             assets.animation`netral animation`,
@@ -149,6 +160,27 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             )
         })
     })
+    timer.after(550, function () {
+        projectile = sprites.createProjectileFromSprite(assets.image`projectial`, mySprite, 0, -50)
+        pause(100)
+        timer.after(500, function () {
+            projectile = sprites.createProjectileFromSprite(assets.image`projectial0`, mySprite, -150, 0)
+            pause(100)
+            timer.after(500, function () {
+                projectile = sprites.createProjectileFromSprite(assets.image`projectial1`, mySprite, 150, 0)
+                pause(100)
+                timer.after(500, function () {
+                    projectile = sprites.createProjectileFromSprite(assets.image`projectial2`, mySprite, 0, 50)
+                    pause(100)
+                })
+            })
+        })
+    })
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster2, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`spider cavern teleport`, function (sprite, location) {
     if (level == 0) {
@@ -339,6 +371,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC3, function (sprite, otherSpr
         })
     }
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster9, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1.5
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`teleport to anglica`, function (sprite, location) {
     if (level == 0) {
         tiles.setCurrentTilemap(maps[5])
@@ -413,6 +450,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`floor 2 orger tellyport0`, fu
         })
     }
 })
+statusbars.onStatusReached(StatusBarKind.Health, statusbars.StatusComparison.EQ, statusbars.ComparisonType.Percentage, 0, function (status) {
+    game.gameOver(false)
+    game.setGameOverMessage(false, "GAME OVER!")
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC4, function (sprite, otherSprite) {
     if (otherSprite == NPC5) {
         timer.throttle("action", 500, function () {
@@ -442,6 +483,16 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`final boss teleport`, functio
         tiles.placeOnRandomTile(NPC2, assets.tile`NPC spot`)
     }
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster4, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster1, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`spider cavern teleport0`, function (sprite, location) {
     if (level == 1) {
         tiles.setCurrentTilemap(maps[0])
@@ -456,6 +507,11 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     200,
     true
     )
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster6, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.npc1, function (sprite, otherSprite) {
     if (otherSprite == NPC2) {
@@ -475,6 +531,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC6, function (sprite, otherSpr
             )
         })
     }
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster7, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1.5
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`house B drgonia teleport`, function (sprite, location) {
     if (level == 7) {
@@ -527,6 +588,20 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster5, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster10, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1.5
+})
+statusbars.onStatusReached(StatusBarKind.EXP, statusbars.StatusComparison.EQ, statusbars.ComparisonType.Percentage, 100, function (status) {
+    game.gameOver(true)
+    game.setGameOverMessage(true, "You Win")
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`your home teleport0`, function (sprite, location) {
     if (level == 3) {
         tiles.setCurrentTilemap(maps[0])
@@ -562,6 +637,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`house Angelica teleport0`, fu
         level = 5
     }
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster12, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1.5
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`barn teleport0`, function (sprite, location) {
     if (level == 2) {
         tiles.setCurrentTilemap(maps[0])
@@ -590,6 +670,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.npc9, function (sprite, otherSpr
         })
     }
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster3, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`dragonian teleport0`, function (sprite, location) {
     if (level == 7) {
         tiles.setCurrentTilemap(maps[0])
@@ -605,6 +690,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Angelica guild church telepor
         NPC6 = sprites.create(assets.image`angle NPC`, SpriteKind.NPC5)
         tiles.placeOnRandomTile(NPC6, assets.tile`new NPC spot`)
     }
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster11, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 1.5
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`orger teleport0`, function (sprite, location) {
     if (level == 8) {
@@ -651,10 +741,12 @@ let monster10: Sprite = null
 let monster9: Sprite = null
 let Monster8: Sprite = null
 let monster_7: Sprite = null
+let projectile: Sprite = null
 let NPC6: Sprite = null
 let npc8: Sprite = null
 let NPC1: Sprite = null
 let npc9: Sprite = null
+let stausbar3: StatusBarSprite = null
 let level = 0
 let mySprite: Sprite = null
 let maps: tiles.TileMapData[] = []
@@ -692,7 +784,7 @@ statusbar.max = 100
 statusbar.setLabel("HP", 15)
 statusbar.positionDirection(CollisionDirection.Left)
 statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
-let statusbar2 = statusbars.create(40, 5, StatusBarKind.Magic)
+let statusbar2 = statusbars.create(40, 5, StatusBarKind.Energy)
 statusbar2.setOffsetPadding(50, 20)
 statusbar2.setColor(8, 6, 9)
 statusbar2.setBarBorder(1, 15)
@@ -700,7 +792,7 @@ statusbar2.positionDirection(CollisionDirection.Right)
 statusbar2.setLabel("MP", 15)
 statusbar2.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
 statusbar2.max = 100
-let stausbar3 = statusbars.create(100, 5, StatusBarKind.EXP)
+stausbar3 = statusbars.create(100, 5, StatusBarKind.EXP)
 stausbar3.setOffsetPadding(-10, 5)
 stausbar3.setColor(10, 11, 11)
 stausbar3.setBarBorder(1, 15)
@@ -784,6 +876,72 @@ game.onUpdate(function () {
     }
 })
 game.onUpdate(function () {
+    if (level == 17) {
+        sprites.destroy(monster13)
+        sprites.destroy(monster14)
+        sprites.destroy(monster15)
+        sprites.destroy(monster16)
+        sprites.destroy(monster17)
+        sprites.destroy(monster18)
+    }
+    if (level == 0) {
+        sprites.destroy(monster13)
+        sprites.destroy(monster14)
+        sprites.destroy(monster15)
+        sprites.destroy(monster16)
+        sprites.destroy(monster17)
+        sprites.destroy(monster18)
+    }
+    if (level == 1) {
+        sprites.destroy(monster13)
+        sprites.destroy(monster14)
+        sprites.destroy(monster15)
+        sprites.destroy(monster16)
+        sprites.destroy(monster17)
+        sprites.destroy(monster18)
+    }
+    if (level == 2) {
+        sprites.destroy(monster13)
+        sprites.destroy(monster14)
+        sprites.destroy(monster15)
+        sprites.destroy(monster16)
+        sprites.destroy(monster17)
+        sprites.destroy(monster18)
+    }
+    if (level == 3) {
+        sprites.destroy(monster13)
+        sprites.destroy(monster14)
+        sprites.destroy(monster15)
+        sprites.destroy(monster16)
+        sprites.destroy(monster17)
+        sprites.destroy(monster18)
+    }
+    if (level == 4) {
+        sprites.destroy(monster13)
+        sprites.destroy(monster14)
+        sprites.destroy(monster15)
+        sprites.destroy(monster16)
+        sprites.destroy(monster17)
+        sprites.destroy(monster18)
+    }
+    if (level == 5) {
+        sprites.destroy(monster13)
+        sprites.destroy(monster14)
+        sprites.destroy(monster15)
+        sprites.destroy(monster16)
+        sprites.destroy(monster17)
+        sprites.destroy(monster18)
+    }
+    if (level == 6) {
+        sprites.destroy(monster13)
+        sprites.destroy(monster14)
+        sprites.destroy(monster15)
+        sprites.destroy(monster16)
+        sprites.destroy(monster17)
+        sprites.destroy(monster18)
+    }
+})
+game.onUpdate(function () {
     if (level == 7) {
         sprites.destroy(npc10)
     }
@@ -808,16 +966,6 @@ game.onUpdate(function () {
     if (level == 0) {
         sprites.destroy(Boss1)
         sprites.destroy(boss2)
-    }
-})
-game.onUpdate(function () {
-    if (level == 17) {
-        sprites.destroy(monster13)
-        sprites.destroy(monster14)
-        sprites.destroy(monster15)
-        sprites.destroy(monster16)
-        sprites.destroy(monster17)
-        sprites.destroy(monster18)
     }
 })
 game.onUpdate(function () {
@@ -851,5 +999,16 @@ game.onUpdate(function () {
     }
 })
 forever(function () {
-	
+    if (controller.A.isPressed()) {
+        timer.after(500, function () {
+            statusbar2.value += -1
+        })
+    }
+})
+forever(function () {
+    if (controller.B.isPressed()) {
+        timer.after(5000, function () {
+            statusbar2.value += 1
+        })
+    }
 })

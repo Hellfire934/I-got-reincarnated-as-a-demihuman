@@ -124,6 +124,26 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "oger with a sword and amor"
     },
+    "image20": {
+        "data": "hwQQABAAAAAAAACvursPAAAAwK+6uw8AAADPzLr/DwAA8My8uw8AAADPzLv7AAAA8My6+/8AAADwrLv7AAAAAPDMu/8AAAAA8Mq7+wAAAADwz7v7DwAAAADPrLv/AAAAAMCsuvsPAAAAwMyqu/8AAADwzMy6//8AAAD/zLq7/wAAAPDPqrv/AA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "projectial"
+    },
+    "image21": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAA8P//AAAAAADPzPoPAAAA8MzKzMz8AADPrLu7zMwPwMy8u7uqzP//zLv7u6vK/Kq8+///u8rMqrr7APC/q6q7u/8AAP+7q7v/AAAA8P+7uw8AAAAA/7v/DwAAAADw/wAAAAAAAPD/AAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "projectial0"
+    },
+    "image22": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8P//DwAAAADw/7sPAAAAAP+7u/8AAADw/7u7u/8AAP+7q6q6+wDwv6uqqrz7//+7ysz/zLv7u6vK/MDMvLu7qsz/AM+su7vMzA8A8MzKzMz8AAAAz8z6DwAAAADw//8AAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "projectial1"
+    },
+    "image23": {
+        "data": "hwQQABAAAAAA8Lur+gAAAADwu6v6DAAAAPD/q8z8AAAAAPC7y8wPAAAAAL+7zPwAAAAA/7+rzA8AAAAAv7vKDwAAAAD/u8wPAAAAAL+7rA8AAADwv7v8DwAAAP+7yvwAAADwv6vKDAAAAP+7qswMAAD//6vMzA8AAP+7q8z/AAAA/7uq/A8AAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "projectial2"
+    },
     ")$/KMo~=DD*,zL],!Y`a": {
         "namespace": "myImages",
         "id": ")$/KMo~=DD*,zL],!Y`a",
