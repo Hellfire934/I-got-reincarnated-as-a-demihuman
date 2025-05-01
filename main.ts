@@ -34,8 +34,9 @@ namespace SpriteKind {
 namespace StatusBarKind {
     export const EXP = StatusBarKind.create()
 }
-/**
- */
+sprites.onOverlap(SpriteKind.monster2, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Npc8, function (sprite, otherSprite) {
     if (otherSprite == npc9) {
         timer.throttle("action", 5000, function () {
@@ -52,6 +53,14 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, l
             level = 7
         })
     }
+})
+sprites.onOverlap(SpriteKind.monster12, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster14, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 3
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -212,6 +221,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`spider cavern teleport`, func
         })
     }
 })
+sprites.onOverlap(SpriteKind.monster17, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`goblin cavern teleport`, function (sprite, location) {
     if (level == 0) {
         tiles.setCurrentTilemap(maps[4])
@@ -357,6 +369,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`orger teleport`, function (sp
         })
     }
 })
+sprites.onOverlap(SpriteKind.monster7, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`house A dragonia teleport0`, function (sprite, location) {
     if (level == 11) {
         tiles.setCurrentTilemap(maps[7])
@@ -454,6 +469,9 @@ statusbars.onStatusReached(StatusBarKind.Health, statusbars.StatusComparison.EQ,
     game.gameOver(false)
     game.setGameOverMessage(false, "GAME OVER!")
 })
+sprites.onOverlap(SpriteKind.monster8, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC4, function (sprite, otherSprite) {
     if (otherSprite == NPC5) {
         timer.throttle("action", 500, function () {
@@ -474,6 +492,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`dragonia guild teleport`, fun
         tiles.placeOnRandomTile(npc10, assets.tile`stool0`)
     }
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster17, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 3
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`final boss teleport`, function (sprite, location) {
     if (level == 0) {
         tiles.setCurrentTilemap(maps[9])
@@ -493,6 +516,9 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster1, function (sprite, 
     sprites.destroy(sprite)
     stausbar3.value += 1
 })
+sprites.onOverlap(SpriteKind.monster16, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`spider cavern teleport0`, function (sprite, location) {
     if (level == 1) {
         tiles.setCurrentTilemap(maps[0])
@@ -507,6 +533,9 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     200,
     true
     )
+})
+sprites.onOverlap(SpriteKind.monster5, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster6, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
@@ -537,6 +566,17 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster7, function (sprite, 
     sprites.destroy(sprite)
     stausbar3.value += 1.5
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster13, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 3
+})
+sprites.onOverlap(SpriteKind.Boss2, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
+sprites.onOverlap(SpriteKind.monster9, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`house B drgonia teleport`, function (sprite, location) {
     if (level == 7) {
         tiles.setCurrentTilemap(maps[12])
@@ -545,6 +585,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`house B drgonia teleport`, fu
         NPC3 = sprites.create(assets.image`NPC human`, SpriteKind.NPC2)
         tiles.placeOnRandomTile(NPC3, assets.tile`myTile9`)
     }
+})
+sprites.onOverlap(SpriteKind.monster15, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`perch teleport0`, function (sprite, location) {
     if (level == 6) {
@@ -588,6 +631,18 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+sprites.onOverlap(SpriteKind.monster13, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
+sprites.onOverlap(SpriteKind.monster6, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
+sprites.onOverlap(SpriteKind.monster10, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
+sprites.onOverlap(SpriteKind.monster4, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster5, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
     sprites.destroy(sprite)
@@ -602,12 +657,20 @@ statusbars.onStatusReached(StatusBarKind.EXP, statusbars.StatusComparison.EQ, st
     game.gameOver(true)
     game.setGameOverMessage(true, "You Win")
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster18, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 3
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`your home teleport0`, function (sprite, location) {
     if (level == 3) {
         tiles.setCurrentTilemap(maps[0])
         mySprite.setPosition(1550, 225)
         level = 0
     }
+})
+sprites.onOverlap(SpriteKind.monster14, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`teleport to anglica0`, function (sprite, location) {
     if (level == 5) {
@@ -663,12 +726,20 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`house B drgonia teleport0`, f
         level = 7
     }
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster15, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 3
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.npc9, function (sprite, otherSprite) {
     if (otherSprite == npc10) {
         timer.throttle("action", 5000, function () {
             npc10.sayText("did you know that the caves can give you more damage for each boss you murder", 5000, true)
         })
     }
+})
+sprites.onOverlap(SpriteKind.monster11, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster3, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
@@ -691,10 +762,21 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Angelica guild church telepor
         tiles.placeOnRandomTile(NPC6, assets.tile`new NPC spot`)
     }
 })
+sprites.onOverlap(SpriteKind.monster1, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
+})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster11, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
     sprites.destroy(sprite)
     stausbar3.value += 1.5
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster16, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    stausbar3.value += 3
+})
+sprites.onOverlap(SpriteKind.monster3, SpriteKind.Player, function (sprite, otherSprite) {
+    statusbar.value += -0.25
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`orger teleport0`, function (sprite, location) {
     if (level == 8) {
@@ -747,6 +829,7 @@ let npc8: Sprite = null
 let NPC1: Sprite = null
 let npc9: Sprite = null
 let stausbar3: StatusBarSprite = null
+let statusbar: StatusBarSprite = null
 let level = 0
 let mySprite: Sprite = null
 let maps: tiles.TileMapData[] = []
@@ -776,7 +859,7 @@ controller.moveSprite(mySprite, 150, 150)
 scene.cameraFollowSprite(mySprite)
 tiles.setCurrentTilemap(tilemap`over world`)
 level = 0
-let statusbar = statusbars.create(40, 5, StatusBarKind.Health)
+statusbar = statusbars.create(40, 5, StatusBarKind.Health)
 statusbar.setOffsetPadding(50, 2)
 statusbar.setColor(7, 2, 5)
 statusbar.setBarBorder(1, 15)
@@ -1009,6 +1092,13 @@ forever(function () {
     if (controller.B.isPressed()) {
         timer.after(5000, function () {
             statusbar2.value += 1
+        })
+    }
+})
+forever(function () {
+    if (controller.B.isPressed()) {
+        timer.after(5000, function () {
+            statusbar.value += 1
         })
     }
 })
